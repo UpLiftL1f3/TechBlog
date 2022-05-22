@@ -1,3 +1,18 @@
-<div class="posts">
-  
+<div class='posts'>
+  {{#each posts as |post|}}
+    <div class='card'>
+      <a href='/post/{{post.id}}'>
+        <section class='card-header flex-row'>
+          <div><h2>{{post.title}}</h2></div>
+          <div><p class='small'>posted by:
+              {{post.User.username}}
+              at
+              {{format_date post.createdAt}}</p></div>
+        </section>
+        <div class='card-body'>
+          {{post.body}}
+        </div>
+      </a>
+    </div>
+  {{/each}}
 </div>

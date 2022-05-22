@@ -1,5 +1,45 @@
-<div class="post">
-  
+<div class='post'>
+  <div class='card'>
+    <section class='card-header flex-row justify-space-between'>
+      <div><h2>{{post.title}}</h2></div>
+      <div><p class='small'>posted by:
+          {{post.User.username}}
+          at
+          {{format_date post.createdAt}}</p></div>
+    </section>
+    <div class='card-body'>
+      {{post.body}}
+    </div>
+  </div>
+  <div class='flex-row'>
+    <button
+      class='justify-content-end'
+      id='newCommentBtn'
+      data-view='visible'
+    >Add Comment</button>
+    <div class='card' id='newCommentContainer' data-view='hidden'>
+      <textarea
+        class='newCommentTextBox'
+        id='newCommentBody'
+        cols='10'
+        rows='6'
+        placeholder='Type your comment here...'
+      ></textarea>
+      <button
+        class='btn justify-content-end'
+        id='submitNewCommentBtn'
+        data-view='visible'
+      >Submit</button>
+    </div>
+  </div>
+  {{#each post.Comments as |comment|}}
+    <div class='card'>
+      <section class='card-body'>
+        {{comment.body}}
+        <p>- {{comment.User.username}}, {{format_date comment.createdAt}}</p>
+      </section>
+    </div>
+  {{/each}}
 </div>
 
-<script src="/js/comment.js"></script>
+<script src='/js/comment.js'></script>

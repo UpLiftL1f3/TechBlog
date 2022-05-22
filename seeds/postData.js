@@ -14,8 +14,7 @@ const postData = [
   {
     title:
       "Did you know ackwards is an old English dialect word that describes a creature lying on its back that can't get up.",
-    message:
-      "Did you know ackwards is an old English dialect word that describes a creature lying on its back that can't get up.",
+    body: "Did you know ackwards is an old English dialect word that describes a creature lying on its back that can't get up.",
     user_id: 2,
   },
   {

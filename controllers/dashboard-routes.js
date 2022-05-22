@@ -1,17 +1,19 @@
 const router = require('express').Router();
-const { Post } = require('../models/');
+const { Post, User } = require('../models/');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
-        userId: req.session.userId,
+        user_id: req.session.userId,
       },
+      include: [{ model: User }],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
+    console.log(posts);
     res.render('all-posts-admin', {
       layout: 'dashboard',
       posts,
@@ -29,7 +31,11 @@ router.get('/new', withAuth, (req, res) => {
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
 
     if (postData) {
       const post = postData.get({ plain: true });

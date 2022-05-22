@@ -15,7 +15,7 @@ body {
   background-color: var(--primary);
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   color: var(--dark);
   line-height: 1.5;
   font-size: 16px;
@@ -59,11 +59,18 @@ p {
 }
 
 input {
-    width: 100%;
-    border: 1px solid #ccc;
-    background: #FFF;
-    margin: 0 0 5px;
-    padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+[data-view='hidden'] {
+  display: none;
+}
+[data-view='visible'] {
+  display: inline;
 }
 
 .card-header h2 {
@@ -76,6 +83,31 @@ input {
   padding: 6px 5px;
   width: 100%;
   display: block;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  background-color: var(--light-dark);
+  box-shadow: 3px 3px var(--dark);
+  transform: translate(-1px, -1px);
+}
+.newCommentTextBox {
+  outline: none;
+  resize: none;
+  overflow: auto;
+  width: 100%;
+}
+
+#newCommentContainer {
+  width: 100%;
+}
+#newCommentBtn {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 6px 5px;
+  width: fit-content;
+  /* display: block; */
   margin: 5px 0;
   border-radius: var(--border-radius);
   color: var(--primary);
@@ -159,7 +191,7 @@ input {
 .footer a {
   display: inline-block;
   padding: 1em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   background-color: var(--dark);
   color: var(--primary);
   border-radius: var(--border-radius);
@@ -219,6 +251,9 @@ input {
   text-transform: uppercase;
 }
 
+.small {
+  font-size: 12px;
+}
 /* FLEX CONTENT */
 .flex-row {
   display: flex;
